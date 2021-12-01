@@ -17,7 +17,6 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
-    ChangeLog.md
 
 source-repository head
   type: git
@@ -28,6 +27,7 @@ library
       Day
       Days.Day01
       FileUtils
+      Results
   other-modules:
       Paths_adventofcode2021
   hs-source-dirs:
@@ -36,7 +36,7 @@ library
       base >=4.7 && <5
   default-language: Haskell2010
 
-executable adventofcode2021-exe
+executable aoc2021
   main-is: Main.hs
   other-modules:
       Paths_adventofcode2021
@@ -48,7 +48,7 @@ executable adventofcode2021-exe
     , base >=4.7 && <5
   default-language: Haskell2010
 
-test-suite adventofcode2021-test
+test-suite aoc2021-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:

@@ -8,7 +8,6 @@ copyright:           "2021 Bryce Thuilot"
 
 extra-source-files:
 - README.md
-- ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -26,7 +25,7 @@ library:
   source-dirs: src
 
 executables:
-  adventofcode2021-exe:
+  aoc2021:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -37,7 +36,7 @@ executables:
     - adventofcode2021
 
 tests:
-  adventofcode2021-test:
+  aoc2021-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
