@@ -1,4 +1,4 @@
-# Advent Of Code 2021
+# Advent Of Code 2021 [![Haskell CI](https://github.com/bthuilot/adventofcode2021/actions/workflows/haskell.yml/badge.svg)](https://github.com/bthuilot/adventofcode2021/actions/workflows/haskell.yml)
 ### *In Haskell*
 
 
