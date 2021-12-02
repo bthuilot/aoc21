@@ -1,5 +1,4 @@
 import Results
-import Days.Day01
 import Day
 import Control.Monad
 import System.Exit
@@ -9,21 +8,22 @@ type TestResult = (Int, TestStats)
 
 -- | 'Test' represents a test to run by the test suite
 -- it contains a 'Day' repesenting which day, 'String' of an input file path,
--- a 'Result' of what is expected, and the day function 'String -> Result' to compare output
-data Test = Test Day String Result (String -> Result)
+-- and a 'Result' of what is expected
+data Test = Test Day String Result
 
 testInputDirectory :: String
 testInputDirectory = "assets/testinputs/"
 
 tests :: [Test]
 tests = [
-  (Test D01 "day01.txt" (Just "7", Just "5") runDay01)
+  (Test D01 "day01.txt" (Just "7", Just "5")),
+  (Test D02 "day02.txt" (Just "150", Just "900"))
   ]
 
 runTest :: TestResult -> Test -> IO TestResult
-runTest (t, (p, f, s)) (Test d file (expected1, expected2) func) = do
+runTest (t, (p, f, s)) (Test d file (expected1, expected2)) = do
   _ <- putStrLn $ "Running " ++ show d
-  let (output1, output2) = func (testInputDirectory ++ file)
+  let (output1, output2) = runDay d (testInputDirectory ++ file)
   putStr $ "part 1: "
   (p1, f1, s1) <-  compareAndPrintResult expected1 output1
   putStr $ "part 2: "

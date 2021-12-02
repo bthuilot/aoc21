@@ -8,7 +8,10 @@ inputDirectory = "assets/inputs/"
 
 -- | 'days' is the collection of all Days along with their respecitve input file
 days :: [(Day, String)]
-days = [(D01, "day01.txt")]
+days = [
+  (D01, "day01.txt"),
+  (D02, "day02.txt")
+  ]
 
 -- | 'outputFold' folds over all 'Result' and 'Day' data and concats all formatted output into one string
 outputFold :: String -> (Day, Result) -> String

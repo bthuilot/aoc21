@@ -26,6 +26,7 @@ library
   exposed-modules:
       Day
       Days.Day01
+      Days.Day02
       FileUtils
       Results
   other-modules:

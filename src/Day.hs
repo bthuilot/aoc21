@@ -1,6 +1,7 @@
 module Day where
 
 import Days.Day01 
+import Days.Day02
 
 import Results
 
@@ -21,4 +22,5 @@ instance Show (Day) where
 -- | with the contents of the file as input
 runDay :: Day -> String -> Result
 runDay D01 f = runDay01 f
+runDay D02 f = runDay02 f
 runDay _ _ = (Nothing, Nothing)

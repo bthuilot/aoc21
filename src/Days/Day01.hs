@@ -1,8 +1,7 @@
 
 
 module Days.Day01 (
-  runDay01,
-  part2
+  runDay01
   ) where
 
 import Results
