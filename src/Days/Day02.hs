@@ -1,7 +1,7 @@
 module Days.Day02 where
 
 import Results
-import FileUtils
+import Utils
 import System.IO.Unsafe
 
 -- | 'Command' is a command for the diver, which is a string of either
@@ -21,9 +21,7 @@ runDay02 filename = do
 -- | 'parseLines' parses the lines of the input into a list of 'Command'
 parseLines :: [String] -> [Command]
 parseLines (l : xs) = (cmd, read amt :: Int) : parseLines xs
-  where
-    cmd = takeWhile (/= ' ') l
-    amt = (dropWhile (/= ' ') l)
+  where (cmd, amt) = splitAtChar l ' '
 parseLines [] = []
 
 -- | 'part1' returns the depth times distance after following the commands as

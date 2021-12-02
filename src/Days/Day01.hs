@@ -5,7 +5,7 @@ module Days.Day01 (
   ) where
 
 import Results
-import FileUtils
+import Utils
 import System.IO.Unsafe
 
 -- | 'runDay01' will run Day 1 of AdventOfCode with the contents from the given file name

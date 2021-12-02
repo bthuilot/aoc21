@@ -27,8 +27,8 @@ library
       Day
       Days.Day01
       Days.Day02
-      FileUtils
       Results
+      Utils
   other-modules:
       Paths_adventofcode2021
   hs-source-dirs:
