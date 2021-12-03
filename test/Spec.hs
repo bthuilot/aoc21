@@ -25,7 +25,8 @@ testInputDirectory = "./assets/testinputs/"
 tests :: [Test]
 tests = [
   (Test D01 "day01.txt" (Just "7", Just "5")),
-  (Test D02 "day02.txt" (Just "150", Just "900"))
+  (Test D02 "day02.txt" (Just "150", Just "900")),
+  (Test D03 "day03.txt" (Just "198", Just "230"))
   ]
 
 -- | 'runTest' takes in the exisiting 'TestResults' and a Test and returns an update 'TestResults'.
@@ -57,7 +58,7 @@ compareAndPrintResult (Just expected) (Just actual)
       _ <- putStrLn $ "\x1b[32m" ++ "pass!" ++ "\x1b[0m"
       return $ (1, 0, 0)
   | otherwise = do
-      _ <- putStrLn $ "\x1b[31m" ++ "fail." ++ "\x1b[0m"
+      _ <- putStrLn $ "\x1b[31m" ++ "fail:" ++ "\x1b[0m expected " ++ expected ++ " but got " ++ actual
       return $ (0, 1, 0)
 
 -- | 'printTestResults' prints the total amount of tests, and the amount of passing, failing and skipped
