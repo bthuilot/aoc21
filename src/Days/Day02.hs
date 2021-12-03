@@ -1,4 +1,6 @@
-module Days.Day02 where
+module Days.Day02
+  ( runDay02
+  ) where
 
 import Results
 import Utils
