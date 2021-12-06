@@ -1,6 +1,9 @@
 
 module Utils where
 
+import qualified Data.Text as T
+import qualified Data.Text.IO as TIO
+
 -- | 'readFileLines' reads in the contents from a given file path and splits the contents into lines
 readFileLines :: String -> IO [String]
 readFileLines filename = do
@@ -22,3 +25,9 @@ splitAtChar (h : str) del
   | otherwise = (h : prefix, suffix)
     where (prefix, suffix) = splitAtChar str del
 splitAtChar [] _ = ("", "")
+
+
+readFileLinesText :: String -> IO [T.Text]
+readFileLinesText filename = do
+  contents <- TIO.readFile filename
+  return $ T.lines contents

@@ -3,6 +3,7 @@ module Day where
 import Days.Day01 
 import Days.Day02
 import Days.Day03
+import Days.Day04
 
 import Results
 
@@ -40,6 +41,7 @@ instance Show (Day) where
   show D01 = "Day 1"
   show D02 = "Day 2"
   show D03 = "Day 3"
+  show D04 = "Day 4"
   show _   = "Not implemented"
 
 
@@ -49,4 +51,5 @@ runDay :: Day -> String -> Result
 runDay D01 f = runDay01 f
 runDay D02 f = runDay02 f
 runDay D03 f = runDay03 f
+runDay D04 f = runDay04 f
 runDay _ _ = (Nothing, Nothing)

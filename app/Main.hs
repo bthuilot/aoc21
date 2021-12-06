@@ -19,7 +19,8 @@ days :: [(Day, String)]
 days = [
   (D01, "day01.txt"),
   (D02, "day02.txt"),
-  (D03, "day03.txt")
+  (D03, "day03.txt"),
+  (D04, "day04.txt")
   ]
 
 -- | 'outputFold' folds over all 'Result' and 'Day' data and concats all formatted output into one string

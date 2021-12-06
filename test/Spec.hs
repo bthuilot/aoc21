@@ -26,7 +26,8 @@ tests :: [Test]
 tests = [
   (Test D01 "day01.txt" (Just "7", Just "5")),
   (Test D02 "day02.txt" (Just "150", Just "900")),
-  (Test D03 "day03.txt" (Just "198", Just "230"))
+  (Test D03 "day03.txt" (Just "198", Just "230")),
+  (Test D04 "day04.txt" (Just "4512", Just "1924"))
   ]
 
 -- | 'runTest' takes in the exisiting 'TestResults' and a Test and returns an update 'TestResults'.
