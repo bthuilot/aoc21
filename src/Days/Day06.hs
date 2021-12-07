@@ -11,7 +11,6 @@ import qualified Data.Text as T
 import qualified Data.Text.Read as R
 import Data.Either
 import Data.List
-import Debug.Trace
 
 -- | 'FishCycles' represent the amount of fish in each stage of the fish life cycle,
 -- where every index represents the day number and each value at an index represents the count
