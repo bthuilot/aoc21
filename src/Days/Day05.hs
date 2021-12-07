@@ -11,9 +11,11 @@ import qualified Data.Text as T
 import qualified Data.Text.Read as R
 import Data.Either
 import Data.List
+import Debug.Trace
 
 -- | 'Point' represents an X,Y point 
 type Point = (Int, Int)
+
 -- | 'Line' represents a line on the XY Plane from first 'Point' in the pair to
 -- the second 'Point' in the pair
 type Line = (Point, Point)
@@ -68,8 +70,8 @@ mergePoints ::[Point] -> [Point] -> [Point]
 mergePoints x [] = x
 mergePoints [] y = y
 mergePoints (x:xs) (y:ys) = if x > y
-                            then y : (mergePoints xs (y:ys))
-                            else x : (mergePoints (x:xs) ys)
+                            then y : (mergePoints (x:xs) ys)
+                            else x : (mergePoints xs (y:ys))
 
 -- | 'isDiag' returns true if the line is a diagonal
 isDiag :: Line -> Bool

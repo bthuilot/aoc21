@@ -31,3 +31,6 @@ readFileLinesText :: String -> IO [T.Text]
 readFileLinesText filename = do
   contents <- TIO.readFile filename
   return $ T.lines contents
+
+readFileText :: String -> IO T.Text
+readFileText = TIO.readFile 
