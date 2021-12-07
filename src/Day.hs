@@ -6,13 +6,14 @@ import Days.Day03
 import Days.Day04
 import Days.Day05
 import Days.Day06
+import Days.Day07
 
 import Results
 
 -- | 'Day' Represents a day for the Advent of Code
-data Day = D01 -- ^ 'D01' represents Day 1
-         | D02 -- ^ 'D02' represents Day 2
-         | D03 -- ^ 'D03' represents Day 3
+data Day = D01
+         | D02
+         | D03
          | D04
          | D05
          | D06
@@ -46,6 +47,7 @@ instance Show (Day) where
   show D04 = "Day 4"
   show D05 = "Day 5"
   show D06 = "Day 6"
+  show D07 = "Day 7"
   show _   = "Not implemented"
 
 
@@ -58,4 +60,5 @@ runDay D03 f = runDay03 f
 runDay D04 f = runDay04 f
 runDay D05 f = runDay05 f
 runDay D06 f = runDay06 f
+runDay D07 f = runDay07 f
 runDay _ _ = (Nothing, Nothing)

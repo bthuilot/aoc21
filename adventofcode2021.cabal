@@ -31,6 +31,7 @@ library
       Days.Day04
       Days.Day05
       Days.Day06
+      Days.Day07
       Results
       Utils
   other-modules:
