@@ -7,6 +7,7 @@ import Days.Day04
 import Days.Day05
 import Days.Day06
 import Days.Day07
+import Days.Day08
 
 import Results
 
@@ -48,6 +49,7 @@ instance Show (Day) where
   show D05 = "Day 5"
   show D06 = "Day 6"
   show D07 = "Day 7"
+  show D08 = "Day 8"
   show _   = "Not implemented"
 
 
@@ -61,4 +63,5 @@ runDay D04 f = runDay04 f
 runDay D05 f = runDay05 f
 runDay D06 f = runDay06 f
 runDay D07 f = runDay07 f
+runDay D08 f = runDay08 f
 runDay _ _ = (Nothing, Nothing)
