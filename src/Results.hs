@@ -8,7 +8,7 @@ type Result = (Maybe String, Maybe String)
 showResults :: String -> Result -> String
 showResults name (out1, out2) = do
       let underline = underlineStr name
-      name ++ "\n" ++ underline ++ "\n" ++ (showPart 1 out1) ++ (showPart 2 out2)
+      name ++ "\n" ++ underline ++ "\n" ++ showPart 1 out1 ++ showPart 2 out2
 
 
 -- | 'underlineStr' creates an underline for a string by repeating

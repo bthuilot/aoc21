@@ -30,13 +30,13 @@ days = [
 -- | 'outputFold' folds over all 'Result' and 'Day' data and concats all formatted output into one string
 outputFold :: String -> (Day, Result) -> String
 outputFold acc (Skip, _) = acc ++ "\nDay skipped"
-outputFold acc (day, result) = acc ++ "\n" ++ (showResults dayName result)
+outputFold acc (day, result) = acc ++ "\n" ++ showResults dayName result
   where
     dayName = show day
 
 -- | 'parseArgs' parses the arguments supplied to the script into a 'DayOptions'
 parseArgs :: [String] -> IO DayOptions
-parseArgs [] = return $ AllDays
+parseArgs [] = return AllDays
 parseArgs (flag : xs)
   | flag == "-o" || flag == "--only" = return $ OnlyDays (map read xs)
   | flag == "-s" || flag == "--skip" = return $ SkipDays (map read xs)
@@ -63,6 +63,6 @@ main :: IO ()
 main = do
   dayOptions <- getArgs >>= parseArgs
   let daysToRun = selectDays 1 dayOptions days 
-  let output = map (\(d, f) -> (d, (runDay d (inputDirectory ++ f)))) daysToRun
+  let output = map (\(d, f) -> (d, runDay d (inputDirectory ++ f))) daysToRun
   let result = foldl outputFold "" output
-  putStrLn $ result
+  putStrLn result

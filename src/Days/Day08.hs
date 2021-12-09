@@ -52,7 +52,7 @@ parseInputLine str = (signalPatterns, digitOutputs)
 part1 :: [Display] -> Int
 part1 displays = sum p1Counts
   where
-    digitsFilter digits = (length digits) `elem` [2,4,3,7] -- Amounts for 1,4,7 & 8
+    digitsFilter digits = length digits `elem` [2,4,3,7] -- Amounts for 1,4,7 & 8
     mapFunc = length . filter digitsFilter . snd
     p1Counts = map mapFunc displays
 
@@ -90,11 +90,11 @@ decodeOutput = flip elemIndex
 -- in a tuple with that ordering, or Nothing if the input is malformed
 calcOneFourSevenEight :: SignalPatterns -> Maybe (String, String, String, String)
 calcOneFourSevenEight patterns = do
-  one <- find (((==) 2) . length) patterns
-  four <- find (((==) 4) . length) patterns
-  seven <- find (((==) 3) . length) patterns
-  eight <- find (((==) 7) . length) patterns
-  return $ (one, four, seven, eight)
+  one <- find ((==) 2 . length) patterns
+  four <- find ((==) 4 . length) patterns
+  seven <- find ((==) 3 . length) patterns
+  eight <- find ((==) 7 . length) patterns
+  return (one, four, seven, eight)
 
 -- | 'calcZeroSixNine' calculates the digit pattern for zero, six, and nine from a pattern
 -- of the bottom corner (e & g in the normal segment display on https://adventofcode.com/2021/day/8)
@@ -105,9 +105,9 @@ calcZeroSixNine zeroSixNine  bottomTwo oneStr
   | length zeroSixNine /= 3 = Nothing
   | otherwise = Just (zeroStr, sixStr, nineStr)
         where
-          isSix s = (length (bottomTwo \\ s) == 0 && length (oneStr \\ s) == 1)
+          isSix s = null (bottomTwo \\ s) && length (oneStr \\ s) == 1
           ([sixStr], [a, b]) = partition isSix zeroSixNine
-          (zeroStr, nineStr) = if length (bottomTwo \\ a) == 0
+          (zeroStr, nineStr) = if null (bottomTwo \\ a)
                                then (a, b)
                                else (b, a)
 
@@ -119,7 +119,7 @@ calcTwoThreeFive twoThreeFive one nine
   | length twoThreeFive /= 3 = Nothing
   | otherwise = Just (two, three, five)
     where
-      isThree s = (length (one \\ s) == 0)
+      isThree s = null (one \\ s)
       ([three], [a, b]) = partition isThree twoThreeFive
       (two, five) = if length (a \\ nine) == 1
                     then (a,b)

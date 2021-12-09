@@ -60,11 +60,11 @@ fuelCost2 crabs i = foldl (\acc crab -> costFunc (abs (crab - i)) + acc) 0 crabs
 findMedian :: [Int] -> Int
 findMedian [] = 0
 findMedian xs = xs !! mid
-  where mid = (length xs) `div` 2
+  where mid = length xs `div` 2
 
 -- | 'findMean' finds the mean of a given list of 'Int'
 findMean :: [Int] -> Double
 findMean [] = 0
-findMean xs = (total / len)
+findMean xs = total / len
   where total = fromIntegral (sum xs)
         len = fromIntegral (length xs)

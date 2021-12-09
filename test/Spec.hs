@@ -24,14 +24,14 @@ testInputDirectory = "./assets/testinputs/"
 -- | 'test' is an Array of all 'Test's to run
 tests :: [Test]
 tests = [
-  (Test D01 "day01.txt" (Just "7", Just "5")),
-  (Test D02 "day02.txt" (Just "150", Just "900")),
-  (Test D03 "day03.txt" (Just "198", Just "230")),
-  (Test D04 "day04.txt" (Just "4512", Just "1924")),
-  (Test D05 "day05.txt" (Just "5", Just "12")),
-  (Test D06 "day06.txt" (Just "5934", Just "26984457539")),
-  (Test D07 "day07.txt" (Just "37", Just "168")),
-  (Test D08 "day08.txt" (Just "26", Just "61229"))
+  Test D01 "day01.txt" (Just "7", Just "5"),
+  Test D02 "day02.txt" (Just "150", Just "900"),
+  Test D03 "day03.txt" (Just "198", Just "230"),
+  Test D04 "day04.txt" (Just "4512", Just "1924"),
+  Test D05 "day05.txt" (Just "5", Just "12"),
+  Test D06 "day06.txt" (Just "5934", Just "26984457539"),
+  Test D07 "day07.txt" (Just "37", Just "168"),
+  Test D08 "day08.txt" (Just "26", Just "61229")
   ]
 
 -- | 'runTest' takes in the exisiting 'TestResults' and a Test and returns an update 'TestResults'.
@@ -40,12 +40,12 @@ runTest :: TestResults -> Test -> IO TestResults
 runTest (t, (p, f, s)) (Test d file (expected1, expected2)) = do
   _ <- putStrLn $ "Running " ++ show d
   let (output1, output2) = runDay d (testInputDirectory ++ file)
-  putStr $ "part 1: "
+  putStr "part 1: "
   (p1, f1, s1) <-  compareAndPrintResult expected1 output1
-  putStr $ "part 2: "
+  putStr "part 2: "
   (p2, f2, s2) <- compareAndPrintResult expected2 output2
-  putStrLn $ "" -- For spacing
-  return $ (t + 2, (p + p1 + p2, f + f1 + f2, s + s1 + s2))
+  putStrLn "" -- For spacing
+  return (t + 2, (p + p1 + p2, f + f1 + f2, s + s1 + s2))
 
 -- | 'compareAndPrintResult' compares two 'Maybe String' representing the expected and actual output of a 'Day's part and prints
 -- the result. The test is considered passing if the expected is equal to the actual, and failing otherwise.
@@ -54,17 +54,17 @@ runTest (t, (p, f, s)) (Test d file (expected1, expected2)) = do
 compareAndPrintResult :: Maybe String -> Maybe String -> IO TestStats
 compareAndPrintResult Nothing _ = do
   _ <- putStrLn "skip..."
-  return $ (0,0,1)
+  return (0,0,1)
 compareAndPrintResult _ Nothing = do
   _ <- putStrLn  $ "not defined, " ++ "\x1b[31m" ++ "fail." ++ "\x1b[0m"
-  return $ (0,1,0)
+  return (0,1,0)
 compareAndPrintResult (Just expected) (Just actual)
   | expected == actual = do
       _ <- putStrLn $ "\x1b[32m" ++ "pass!" ++ "\x1b[0m"
-      return $ (1, 0, 0)
+      return (1, 0, 0)
   | otherwise = do
       _ <- putStrLn $ "\x1b[31m" ++ "fail:" ++ "\x1b[0m expected " ++ expected ++ " but got " ++ actual
-      return $ (0, 1, 0)
+      return (0, 1, 0)
 
 -- | 'printTestResults' prints the total amount of tests, and the amount of passing, failing and skipped
 -- from a 'TestResults'
@@ -81,4 +81,4 @@ main = do
   printTestResults results 
   if f > 0
     then exitWith (ExitFailure 1)
-    else exitWith ExitSuccess
+    else exitSuccess

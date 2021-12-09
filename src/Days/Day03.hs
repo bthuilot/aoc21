@@ -5,7 +5,6 @@ module Days.Day03
 import Results
 import Utils
 import System.IO.Unsafe
-import Debug.Trace
 
 -- | 'BinaryDigit' represents a digit in binary, either 1 or 0
 data BinaryDigit = Zero -- ^ 'Zero' represents the value 0
@@ -48,7 +47,7 @@ binDigitToInt d
 -- | 'binNumToInt' converts a 'BinaryNumber' to an 'Int' representation
 binNumToInt :: BinaryNum -> Int
 binNumToInt [] = 0
-binNumToInt (d : xs) = val * (2 ^ (length xs)) + recur
+binNumToInt (d : xs) = val * (2 ^ length xs) + recur
   where val = binDigitToInt d
         recur = binNumToInt xs
 
@@ -66,7 +65,7 @@ runDay03 filename = do
 -- each line should consist of the same length of 1's and 0's
 parseInput :: [String] -> [BinaryNum]
 parseInput [] = []
-parseInput (num : xs) = binNum : (parseInput xs)
+parseInput (num : xs) = binNum : parseInput xs
   where binNum = map charToBinDigit num
 
 -- | 'part1' takes in a list of 'BinaryNumber's and finds the gamma and eplison rates as per
@@ -74,7 +73,7 @@ parseInput (num : xs) = binNum : (parseInput xs)
 part1 :: [BinaryNum] -> Int
 part1 [] = 0
 part1 nums = binNumToInt revMcbs * binNumToInt revLcbs
-  where len = (length (head nums)) - 1
+  where len = length (head nums) - 1
         (mcbs, lcbs) = getCommonBits nums len -- get most and least common bits
         revMcbs = reverse mcbs
         revLcbs = reverse lcbs
@@ -129,7 +128,7 @@ part2 input = do
   let filterFunc = filterRatings input 0
   let co2 = filterFunc co2Criteria
   let oxygen = filterFunc oxygenCriteria
-  (binNumToInt oxygen * binNumToInt co2)
+  binNumToInt oxygen * binNumToInt co2
 
 -- | 'filterRatings' performs a 'BitCritera' for every bit in the 'BinaryNum's at the index given as a 'Int'.
 -- it then concats all results into a 'BinaryNum'
@@ -144,7 +143,7 @@ filterRatings nums pos criteria = filterRatings filtered (pos + 1) criteria
 -- common bit at the position given by the 'Int' (zero indexed) 
 filterMCB :: BitCriteria -> [BinaryNum] -> Int -> [BinaryNum]
 filterMCB criteria nums pos = filter filterBit nums
-  where bits = map (flip (!!) pos) nums
+  where bits = map (!! pos) nums
         ones = length $ filter (== One) bits
         zeros = length $ filter (== Zero) bits
         filterBit num = (num !! pos) == criteria ones zeros

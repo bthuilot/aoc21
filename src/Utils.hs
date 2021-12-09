@@ -51,7 +51,7 @@ splitStr [] _ = []
 splitStr s c
   | before == s = [before]
   | before == "" = splitStr after c
-  | otherwise = before : (splitStr after c)
+  | otherwise = before : splitStr after c
   where before = takeWhile (/= c) s
         (_: after) = dropWhile (/= c) s
 

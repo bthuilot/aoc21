@@ -11,7 +11,6 @@ import qualified Data.Text as T
 import qualified Data.Text.Read as R
 import Data.Either
 import Data.List
-import Debug.Trace
 
 -- | 'Point' represents an X,Y point 
 type Point = (Int, Int)
@@ -70,8 +69,8 @@ mergePoints ::[Point] -> [Point] -> [Point]
 mergePoints x [] = x
 mergePoints [] y = y
 mergePoints (x:xs) (y:ys) = if x > y
-                            then y : (mergePoints (x:xs) ys)
-                            else x : (mergePoints xs (y:ys))
+                            then y : mergePoints (x:xs) ys
+                            else x : mergePoints xs (y:ys)
 
 -- | 'isDiag' returns true if the line is a diagonal
 isDiag :: Line -> Bool
@@ -81,7 +80,7 @@ isDiag ((x1, y1), (x2, y2)) = x1 /= x2 &&  y1 /= y2
 listPoints :: Line -> [Point]
 listPoints ((x1, y1), (x2, y2))
   | x1 == x2 && y1 == y2 = [(x1, y1)]
-  | otherwise = point : (listPoints ((newX1, newY1), (x2, y2)))
+  | otherwise = point : listPoints ((newX1, newY1), (x2, y2))
   where point = (x1, y1)
         newX1 = findNextPoint x1 x2
         newY1 = findNextPoint y1 y2

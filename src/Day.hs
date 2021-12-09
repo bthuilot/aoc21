@@ -40,7 +40,7 @@ data Day = D01
          | Skip -- ^ 'Skip' represents a Day that should be skipped (when `--skip` CLI argument is used)
 
 -- | Instance of 'Show' for 'Day' data type. Returns a formatted string of the name of the 'Day'
-instance Show (Day) where
+instance Show Day where
   show Skip = "Skipped"
   show D01 = "Day 1"
   show D02 = "Day 2"

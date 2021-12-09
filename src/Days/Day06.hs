@@ -41,7 +41,7 @@ parseInput t = map toDecimal (T.splitOn ","  t)
 -- | 'createFishCycles' creates a 'FishCycles' from a list of 'Int' each value representing the day
 -- in the fish life cycle a fish is on
 createFishCycles :: [Int] -> FishCycles
-createFishCycles fish = result ++ (take (9 - length result) $ repeat 0) 
+createFishCycles fish = result ++ replicate (9 - length result) 0
   where result = map length (group sortedFish)
         sortedFish = sort fish
 
@@ -55,8 +55,8 @@ waitDays fish i
   | otherwise = waitDays nextDay (i - 1)
      where (rotated, prev0) = rotateL fish
            newBorns = rotated ++ [prev0]
-           (before, (six:after)) = splitAt 6 newBorns
-           nextDay = before ++ [(six + prev0)] ++ after
+           (before, six:after) = splitAt 6 newBorns
+           nextDay = before ++ [six + prev0] ++ after
            
 -- | 'rotateL' rotates a list of 'Int' to the left and returns the new list
 -- in addition to the item removed, or 0 if the list is empty
