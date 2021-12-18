@@ -31,7 +31,8 @@ tests = [
   Test D05 "day05.txt" (Just "5", Just "12"),
   Test D06 "day06.txt" (Just "5934", Just "26984457539"),
   Test D07 "day07.txt" (Just "37", Just "168"),
-  Test D08 "day08.txt" (Just "26", Just "61229")
+  Test D08 "day08.txt" (Just "26", Just "61229"),
+  Test D09 "day09.txt" (Just "15", Nothing)
   ]
 
 -- | 'runTest' takes in the exisiting 'TestResults' and a Test and returns an update 'TestResults'.
