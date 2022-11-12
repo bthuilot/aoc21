@@ -1,7 +1,7 @@
-name:                adventofcode2021
+name:                aoc21
 version:             0.1.0.0
-github:              "bthuliot/adventofcode2021"
-license:             BSD3
+github:              "bthuliot/aoc21"
+license:             GPL3
 author:              "Bryce Thuilot"
 maintainer:          "bryce@thuilot.io"
 copyright:           "2021 Bryce Thuilot"
@@ -10,13 +10,10 @@ extra-source-files:
 - README.md
 
 # Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
+synopsis:            Advent of Code 2021
+category:            Challenge
 
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/bthuliot/adventofcode2021#readme>
+description:         Please see the README on GitHub at <https://github.com/bthuliot/aoc21#readme>
 
 dependencies:
 - base >= 4.7 && < 5
