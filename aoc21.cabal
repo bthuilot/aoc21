@@ -1,18 +1,18 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.34.6.
 --
 -- see: https://github.com/sol/hpack
 
-name:           adventofcode2021
+name:           aoc21
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/bthuliot/adventofcode2021#readme>
-homepage:       https://github.com/bthuliot/adventofcode2021#readme
-bug-reports:    https://github.com/bthuliot/adventofcode2021/issues
+description:    Please see the README on GitHub at <https://github.com/bthuliot/aoc21#readme>
+homepage:       https://github.com/bthuliot/aoc21#readme
+bug-reports:    https://github.com/bthuliot/aoc21/issues
 author:         Bryce Thuilot
 maintainer:     bryce@thuilot.io
 copyright:      2021 Bryce Thuilot
-license:        BSD3
+license:        GPL3
 license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
@@ -20,7 +20,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/bthuliot/adventofcode2021
+  location: https://github.com/bthuliot/aoc21
 
 library
   exposed-modules:
@@ -33,6 +33,7 @@ library
       Days.Day06
       Days.Day07
       Days.Day08
+      Days.Day10
       Results
       Utils
   other-modules:

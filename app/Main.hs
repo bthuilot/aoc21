@@ -24,7 +24,8 @@ days = [
   (D05, "day05.txt"),
   (D06, "day06.txt"),
   (D07, "day07.txt"),
-  (D08, "day08.txt")
+  (D08, "day08.txt"),
+  (D10, "day10.txt")
   ]
 
 -- | 'outputFold' folds over all 'Result' and 'Day' data and concats all formatted output into one string
