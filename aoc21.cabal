@@ -6,14 +6,15 @@ cabal-version: 1.12
 
 name:           aoc21
 version:        0.1.0.0
+synopsis:       Advent of Code 2021
 description:    Please see the README on GitHub at <https://github.com/bthuliot/aoc21#readme>
+category:       Challenge
 homepage:       https://github.com/bthuliot/aoc21#readme
 bug-reports:    https://github.com/bthuliot/aoc21/issues
 author:         Bryce Thuilot
 maintainer:     bryce@thuilot.io
 copyright:      2021 Bryce Thuilot
-license:        GPL3
-license-file:   LICENSE
+license:        GPL-3
 build-type:     Simple
 extra-source-files:
     README.md
@@ -37,7 +38,7 @@ library
       Results
       Utils
   other-modules:
-      Paths_adventofcode2021
+      Paths_aoc21
   hs-source-dirs:
       src
   build-depends:
@@ -48,12 +49,12 @@ library
 executable aoc2021
   main-is: Main.hs
   other-modules:
-      Paths_adventofcode2021
+      Paths_aoc21
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      adventofcode2021
+      aoc21
     , base >=4.7 && <5
     , text
   default-language: Haskell2010
@@ -62,12 +63,12 @@ test-suite aoc2021-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_adventofcode2021
+      Paths_aoc21
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      adventofcode2021
+      aoc21
     , base >=4.7 && <5
     , text
   default-language: Haskell2010

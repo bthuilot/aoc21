@@ -1,7 +1,7 @@
 name:                aoc21
 version:             0.1.0.0
 github:              "bthuliot/aoc21"
-license:             GPL3
+license:             GPL-3
 author:              "Bryce Thuilot"
 maintainer:          "bryce@thuilot.io"
 copyright:           "2021 Bryce Thuilot"
@@ -31,7 +31,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - adventofcode2021
+    - aoc21
 
 tests:
   aoc2021-test:
@@ -42,4 +42,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - adventofcode2021
+    - aoc21

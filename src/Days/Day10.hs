@@ -13,7 +13,7 @@ runDay10 filename = do
   let lines = unsafePerformIO $ readFileLines filename
   let parsedLines = map (parseLine []) lines
   let part1Result = part1 [Corrupt c | (Corrupt c) <- parsedLines]
-  let part2Result = part2
+  let part2Result = Nothing 
   (Just $ show part1Result, Nothing)
 
 -- | 'CharPair' represents the different types of open and closing character pairs
@@ -91,7 +91,7 @@ parseChar _ = Unknown
 -- | 'parseLine' will parse the line into a 'Syntax'
 parseLine :: [CharPair] -> [Char] -> Syntax
 parseLine [] [] = Valid
-parseLine _ [] = Incomplete
+parseLine (x : _) [] = Incomplete [x]
 parseLine stack (c : xs) =
   case parseChar c of
     OpenChar p -> parseLine (p : stack) xs
